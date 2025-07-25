@@ -3,9 +3,43 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <title>To-Do List</title>
+      <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-      
+      <main>
+            <header>
+                  <h2>To Do List</h2>
+            </header>
+            
+            <form>
+                  <div>
+                        <input type="text" name="task" id="task" placeholder="Tuliskan to do anda disini">
+                        <input type="date" name="tanggal" id="tanggal">
+                        <button type="button" onclick="TambahTask();"> + Tambah </button>
+                  </div>
+            </form>
+            <section>
+                  <div>
+                        <select name="filter" id="filter" onchange="FilterTask();">
+                              <option value="Semua">Semua</option>
+                              <option value="Pending">Pending</option>
+                              <option value="Selesai">Selesai</option>
+                        </select>
+                        <button onclick="HapusSemua();">Delete All</button>
+                  </div>
+                  <table id="TabelTask">
+                        <thead>
+                              <th>Task</th>
+                              <th>Due Date</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                  </table>
+            </section>
+      </main>
+      <script src="js/script.js"></script>
 </body>
 </html>
