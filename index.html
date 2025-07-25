@@ -5,37 +5,41 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>To-Do List</title>
       <link rel="stylesheet" href="css/style.css">
+      <script src="https://kit.fontawesome.com/d50255aa83.js" crossorigin="anonymous"></script>
 </head>
 <body>
       <main>
             <header>
                   <h2>To Do List</h2>
             </header>
-            
             <form>
-                  <div>
-                        <input type="text" name="task" id="task" placeholder="Tuliskan to do anda disini">
+                  <div class="input">
+                        <input type="text" name="task" id="task" placeholder="Tuliskan task anda disini">
                         <input type="date" name="tanggal" id="tanggal">
-                        <button type="button" onclick="TambahTask();"> + Tambah </button>
+                        <button type="button" id="tambah" onclick="TambahTask();"> + Tambah </button>
                   </div>
             </form>
             <section>
-                  <div>
+                  <div class="buttons">
                         <select name="filter" id="filter" onchange="FilterTask();">
+                              <option value="Filter" hidden selected>Filter</option>
                               <option value="Semua">Semua</option>
                               <option value="Pending">Pending</option>
                               <option value="Selesai">Selesai</option>
                         </select>
-                        <button onclick="HapusSemua();">Delete All</button>
+                        <button id="HapusSemua" onclick="HapusSemua();">Hapus Semua</button>
                   </div>
                   <table id="TabelTask">
                         <thead>
-                              <th>Task</th>
-                              <th>Due Date</th>
-                              <th>Status</th>
-                              <th>Actions</th>
+                              <tr>
+                                    <th>Tugas</th>
+                                    <th>Batas Tanggal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                              </tr>
                         </thead>
                         <tbody>
+                              <td style="text-align: center;" colspan="4">Anda belum memiliki tugas</td>
                         </tbody>
                   </table>
             </section>

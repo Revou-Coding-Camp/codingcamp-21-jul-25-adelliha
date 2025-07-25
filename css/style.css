@@ -1,0 +1,125 @@
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+      background-color: rgb(19, 22, 84);
+}
+
+main{
+      background-color: rgb(144, 189, 230);
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 100px auto;
+      width: 40vw;
+      height: 48vh;
+}
+
+header{
+      color: black;
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 20px;
+}
+
+.input, .buttons{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+}
+
+#task, #tanggal, #tambah{
+      padding: 7px;
+      border: 1px solid gainsboro;
+      border-radius: 7px;
+      margin: 3px;
+}
+
+#tambah{
+      background-color: rgb(13, 89, 156);
+      color: white;
+      font-weight: bold;
+      border: none;
+}
+
+#task, #tanggal{
+      width: 41%;
+}
+
+#filter, #HapusSemua{
+      padding: 7px;
+      border: 1px solid gainsboro;
+      border-radius: 5px;
+}
+
+#filter{
+      width: 20%;
+      background-color: rgb(5, 13, 121);
+      color: white;
+      font-weight: bold;
+      border: none;
+}
+
+#HapusSemua{
+      width: 20%;
+      background-color: rgb(5, 13, 121);
+      color: white;
+      font-weight: bold;
+      border: none;
+}
+
+#TabelTask{
+      background-color: rgb(223, 237, 254);
+      width: 100%;
+      border: 1px solid gainsboro;
+      border-radius: 5px;
+      height: 95px;
+}
+
+#TabelTask tbody {
+      height: 95px;
+      display: block;
+      overflow-y: auto;
+}
+
+#TabelTask thead{
+      background-color: rgb(13, 89, 156);
+      color: white;
+}
+
+#TabelTask thead, #TabelTask tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#TabelTask td, #TabelTask th {
+      text-align: left;
+      padding: 5px 12px;
+}
+
+.done, .edit, .hapus{
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+}
+
+.done {
+      background-color: #4CAF50;
+      color: white;
+}
+
+.edit {
+      background-color: #ffc107;
+      color: white;
+}
+
+.hapus {
+      background-color: #f44336;
+      color: white;
+}

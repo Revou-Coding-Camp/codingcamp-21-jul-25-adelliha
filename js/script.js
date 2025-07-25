@@ -1,6 +1,5 @@
 //array untuk menyimpan task
 let tasks = [];
-// let FilterSkrg = "Semua";
 
 //fungsi untuk tambah task
 function TambahTask(){
@@ -13,14 +12,13 @@ function TambahTask(){
                   tanggaltask : tanggal.value,
                   status: "Pending"
             });
-
             TampilTask();
 
             task.value = "";
             tanggal.value = "";
 
       } else {
-            alert("Mohon isi nama task dan tanggal dengan benar!");
+            alert("Mohon isi nama tugas dan tanggal dengan lengkap!");
       }
 }
 
@@ -30,29 +28,36 @@ function TampilTask(){
       const FilterSkrg = document.getElementById("filter").value;
 
       Tabel.innerHTML="";
-
+      let Ada = false;
       tasks.forEach((item, index) => {
-            if (FilterSkrg === "Semua" || item.status === FilterSkrg){
+            if (FilterSkrg === "Filter" || FilterSkrg === "Semua" || item.status === FilterSkrg){
                   const DataBaru = Tabel.insertRow();
                   DataBaru.innerHTML = `
                   <td>${item.namatask}</td>
                   <td>${item.tanggaltask}</td>
                   <td>${item.status}</td>
                   <td>
-                        <button onclick="SelesaiTask(${index});">OK</button>
-                        <button onclick="EditTask(${index});">Edit</button>
-                        <button onclick="HapusTask(${index});">Hapus</button>
+                        <button class="done" onclick="SelesaiTask(${index});"><i class="fa-solid fa-check"></i></button>
+                        <button class="edit" onclick="EditTask(${index});"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="hapus" onclick="HapusTask(${index});"><i class="fa-regular fa-trash-can"></i></button>
                   </td>
                   `;
+                  AdaTask = true;
             }
       });
 
+      if (!AdaTask){
+            const baris = Tabel.insertRow();
+            baris.innerHTML = `<td style="text-align:center;" colspan="4">Anda belum memiliki tugas</td>`;
+      }
 }
 
 //fungsi untuk menghapus tiap baris task
 function HapusTask(index){
-      tasks.splice(index,1);
-      TampilTask();
+      if (confirm("Apakah anda yakin ingin menghapus task ini?")) {
+            tasks.splice(index,1);
+            TampilTask();
+      }
 }
 
 //fungsi untuk mengubah nama task tiap baris
@@ -73,11 +78,14 @@ function SelesaiTask(index){
 //fungsi untuk memfilter task berdasarkan status
 function FilterTask(){
       TampilTask();
-
 }
 
 function HapusSemua(){
-      alert("Apakah anda yakin ingin menghapus semuanya?");
-      tasks=[];
-      TampilTask();
+      if (confirm("Apakah anda yakin ingin menghapus semuanya?")) {
+            tasks = [];
+            TampilTask();
+            document.getElementById("task").value = "";
+            document.getElementById("tanggal").value = "";
+            document.getElementById("filter").value = "Filter"; 
+      }
 }
